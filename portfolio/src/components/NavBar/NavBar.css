@@ -1,4 +1,9 @@
 /* navbar */
+
+a {
+  color: black;
+}
+
 .logo {
   height: auto;
   width: 70px;
