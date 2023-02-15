@@ -1,17 +1,6 @@
-/* navbar */
-
-a {
-  color: black;
-}
-
 .logo {
   height: auto;
   width: 70px;
-}
-
-.flex {
-  display: flex;
-  gap: var(--gap, 1rem);
 }
 
 .primary-header {
@@ -32,10 +21,6 @@ a {
   padding: 0;
   margin: 0;
   /* background: hsl(0 0% 0%/0.1); */
-}
-
-.primary-navigation a {
-  text-decoration: none;
 }
 
 .primary-navigation a > span {

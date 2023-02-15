@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Typewriter from "typewriter-effect";
 import NavBar from "./components/NavBar/NavBar";
+import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import "./App.css";
 
@@ -26,7 +27,7 @@ function App() {
       ) : (
         <>
           <NavBar />
-          <About />
+          <Home />
         </>
       )}
     </>
