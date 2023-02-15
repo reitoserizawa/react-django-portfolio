@@ -3,57 +3,57 @@ import image from "../../images/home__blob-image.png";
 
 function Home() {
   return (
-    <section id="home" class="home section">
-      <div class="home__container container grid">
-        <div class="home__content grid">
-          <div class="home__social">
-            <div class="thought">
-              <div class="home__social-list">
+    <section id="home" className="home section">
+      <div className="home__container container grid">
+        <div className="home__content grid">
+          <div className="home__social">
+            <div className="thought">
+              <div className="home__social-list">
                 <a
-                  class="home__social-icon"
+                  className="home__social-icon"
                   href="https://www.linkedin.com/in/reitos/"
                   tagret="_blank"
                 >
-                  <i class="fa-brands fa-linkedin-in fa-xl"></i>
+                  <i className="fa-brands fa-linkedin-in fa-xl"></i>
                 </a>
                 <a
-                  class="home__social-icon"
+                  className="home__social-icon"
                   href="https://github.com/reitoserizawa"
                   tagret="_blank"
                 >
                   <i class="fa-brands fa-github fa-xl"></i>
                 </a>
                 <a
-                  class="home__social-icon"
+                  className="home__social-icon"
                   href="https://medium.com/@s.reitiger"
                   tagret="_blank"
                 >
-                  <i class="fa-brands fa-medium fa-xl"></i>
+                  <i className="fa-brands fa-medium fa-xl"></i>
                 </a>
               </div>
             </div>
           </div>
           <div class="home__blob">
-            <img class="home__blob-img" src={image} />
+            <img class="home__blob-profile" src={image} alt="home-profile" />
           </div>
-          <div class="home__data">
-            <h1 class="home__title">Reito Serizawa</h1>
-            <h3 class="home__subtitle">Full-stack developer</h3>
-            <p class="home__description">
+          <div className="home__data">
+            <h1 className="home__title">Reito Serizawa</h1>
+            <h3 className="home__subtitle">Full-stack developer</h3>
+            <p className="home__description">
               Hello, I am Reito Serizawa. I am a full-stack software engineer in
               NYC. I was born in Tokyo, Japan and grow up by Mt. Fuiji.
             </p>
-            <a href="#contact" class="button button--flex">
-              Contact me<i class="fa-regular fa-envelope button__icon"></i>
+            <a href="#contact" className="button button--flex">
+              Contact me<i className="fa-regular fa-envelope button__icon"></i>
             </a>
           </div>
-          <div class="home__scroll">
+          {/* <div class="home__scroll">
             <a href="#about" class="home__scroll-button button--flex">
               <i class="fa-solid fa-computer-mouse home__scroll-mouse"></i>
               <span class="home__scroll-name">Scroll down</span>
               <i class="fa-solid fa-arrow-down home__scroll-arrow"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
