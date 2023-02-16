@@ -40,8 +40,8 @@ function Home() {
             <h1 className="home__title">Reito Serizawa</h1>
             <h3 className="home__subtitle">Full-stack developer</h3>
             <p className="home__description">
-              Hello, I am Reito Serizawa. I am a full-stack software engineer in
-              NYC. I was born in Tokyo, Japan and grow up by Mt. Fuiji.
+              I am a full-stack software engineer in NYC. I was born in Tokyo,
+              Japan and grow up by Mt. Fuiji. I love outdoors and cocktails.
             </p>
             <a href="#contact" className="button button--flex">
               Contact me<i className="fa-regular fa-envelope button__icon"></i>
