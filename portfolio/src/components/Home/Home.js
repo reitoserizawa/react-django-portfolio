@@ -41,7 +41,8 @@ function Home() {
             <h3 className="home__subtitle">Full-stack developer</h3>
             <p className="home__description">
               I am a full-stack software engineer in NYC. I was born in Tokyo,
-              Japan and grow up by Mt. Fuiji. I love outdoors and cocktails.
+              Japan and grew up by Mt. Fuiji. I love the outdoors, wine and
+              cocktails.
             </p>
             <a href="#contact" className="button button--flex">
               Contact me<i className="fa-regular fa-envelope button__icon"></i>
