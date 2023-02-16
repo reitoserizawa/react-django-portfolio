@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
 
@@ -33,36 +34,37 @@ function NavBar() {
           id="primary-navigation"
           className="primary-navigation flex"
           data-visible={visibility}
+          onClick={navToggle}
         >
           <li className="active">
-            <a href="#home">
+            <Link to="/">
               <span aria-hidden="true">00</span>Home
-            </a>
+            </Link>
           </li>
           <li className="active">
-            <a href="#about">
+            <Link to="/about">
               <span aria-hidden="true">01</span>About
-            </a>
+            </Link>
           </li>
           <li className="active">
-            <a href="#work">
+            <Link to="/work">
               <span aria-hidden="true">02</span>Work
-            </a>
+            </Link>
           </li>
           <li className="active">
-            <a href="#blog">
+            <Link to="/blog">
               <span aria-hidden="true">03</span>Blog
-            </a>
+            </Link>
           </li>
           <li className="active">
-            <a href="#contact">
+            <Link to="/contact">
               <span aria-hidden="true">04</span>Contact
-            </a>
+            </Link>
           </li>
           <li className="active">
-            <a href="#resume">
+            <Link to="/resume">
               <span aria-hidden="true">05</span>Resume
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

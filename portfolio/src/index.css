@@ -95,10 +95,6 @@ img {
   gap: var(--gap, 1rem);
 }
 
-.section {
-  /* margin-bottom: var(--mb-2); */
-}
-
 .section__title {
   font-size: var(--h1-font-size);
 }
@@ -115,7 +111,7 @@ img {
 }
 
 .container {
-  /* max-width: 768px; */
+  max-width: 768px;
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }

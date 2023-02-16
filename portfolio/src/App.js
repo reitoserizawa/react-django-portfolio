@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
@@ -6,7 +7,7 @@ import About from "./components/About/About";
 import "./App.css";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   return (
     <>
@@ -27,8 +28,10 @@ function App() {
       ) : (
         <>
           <NavBar />
-          <Home />
-          <About />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+          </Routes>
         </>
       )}
     </>
