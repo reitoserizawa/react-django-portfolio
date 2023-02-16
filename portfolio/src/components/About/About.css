@@ -154,7 +154,7 @@
 
 .about__blob__content .actionBtn {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -166,11 +166,6 @@
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
   cursor: pointer;
-}
-
-.about__blob__content .actionBtn button:nth-child(2) {
-  border: 1px solid black;
-  color: #656565;
 }
 
 /* small display */

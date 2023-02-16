@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./About.css";
 import image from "../../images/about__blob.jpg";
 
@@ -72,25 +73,33 @@ function About() {
                   <span>Full-stack Software Engineer</span>
                 </h2>
                 <div className="about__blob__data">
-                  <h3>
-                    342
-                    <br />
-                    <span>Posts</span>
-                  </h3>
-                  <h3>
-                    120k
-                    <br />
-                    <span>Followers</span>
-                  </h3>
-                  <h3>
-                    280
-                    <br />
-                    <span>Following</span>
-                  </h3>
+                  <a href="https://www.linkedin.com/in/reitos/">
+                    <h3>
+                      <i class="fa-brands fa-linkedin-in"></i>
+                      <br />
+                      <span>LinkedIn</span>
+                    </h3>
+                  </a>
+                  <a href="https://www.github.com/reitoserizawa">
+                    <h3>
+                      <i class="fa-brands fa-github"></i>
+                      <br />
+                      <span>GitHub</span>
+                    </h3>
+                  </a>
+                  <a href="https://medium.com/@s.reitiger">
+                    <h3>
+                      <i class="fa-brands fa-medium"></i>
+                      <br />
+                      <span>Medium</span>
+                    </h3>
+                  </a>
                 </div>
                 <div className="actionBtn">
-                  <button>Follow</button>
-                  <button>Message</button>
+                  {/* <button>Follow</button> */}
+                  <Link to="/contact">
+                    <button>Contact</button>
+                  </Link>
                 </div>
               </div>
             </div>
