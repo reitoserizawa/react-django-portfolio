@@ -96,7 +96,7 @@ img {
 }
 
 .section {
-  /* padding: 2rem 0 4rem; */
+  /* margin-bottom: var(--mb-2); */
 }
 
 .section__title {
@@ -115,7 +115,7 @@ img {
 }
 
 .container {
-  max-width: 768px;
+  /* max-width: 768px; */
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }

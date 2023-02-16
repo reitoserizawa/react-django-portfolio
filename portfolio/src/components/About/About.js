@@ -6,9 +6,9 @@ function About() {
     <section id="about" className="about section tag soft_gray">
       <div className="about__container container grid">
         <div className="about__content grid">
-          <h2>
+          <h1 className="about__title">
             <span aria-hidden="true">01</span>About
-          </h2>
+          </h1>
           <div className="about__data">
             <p>
               Hello, world! I am Reito Serizawa. Prior to pursuing a career as a
