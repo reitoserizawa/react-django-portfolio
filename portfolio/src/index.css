@@ -96,7 +96,7 @@ img {
 }
 
 .section {
-  /* padding: 2rem 0 4rem; */
+  /* margin-bottom: var(--mb-2); */
 }
 
 .section__title {
