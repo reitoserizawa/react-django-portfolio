@@ -4,7 +4,7 @@ import image from "../../images/about__blob.jpg";
 
 function About() {
   return (
-    <section id="about" className="about section tag soft_gray">
+    <section id="about" className="about section">
       <div className="about__container container grid">
         <div className="about__title__container">
           <h1 className="about__title">
@@ -40,24 +40,12 @@ function About() {
             <p>I have recently been working with a few technologies below:</p>
             <div className="about__technologies">
               <ul class="grid">
-                <li>
-                  <i class="fa-solid fa-arrow-right"></i>Python
-                </li>
-                <li>
-                  <i class="fa-solid fa-arrow-right"></i>Django
-                </li>
-                <li>
-                  <i class="fa-solid fa-arrow-right"></i>Java
-                </li>
-                <li>
-                  <i class="fa-solid fa-arrow-right"></i>SQL
-                </li>
-                <li>
-                  <i class="fa-solid fa-arrow-right"></i>JavaScript
-                </li>
-                <li>
-                  <i class="fa-solid fa-arrow-right"></i>CSS
-                </li>
+                <li>Python</li>
+                <li>Django</li>
+                <li>Java</li>
+                <li>SQL</li>
+                <li>JavaScript</li>
+                <li>CSS</li>
               </ul>
             </div>
           </div>

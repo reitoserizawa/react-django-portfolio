@@ -4,6 +4,7 @@ import Typewriter from "typewriter-effect";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
+import Work from "./components/Work/Work";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
+            <Route exact path="/work" element={<Work />} />
           </Routes>
         </>
       )}
