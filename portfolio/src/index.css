@@ -57,7 +57,7 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   font-size: var(--body-font);
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 h1,
