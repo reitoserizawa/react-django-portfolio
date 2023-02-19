@@ -35,10 +35,43 @@
   height: 1px;
   position: relative;
   vertical-align: middle;
-  width: 85%;
+  width: 35%;
   margin-left: var(--mb-0-5);
   z-index: -1;
 }
 .work__title span {
   margin-right: var(--mb-0-5);
+}
+
+@media screen and (max-width: 500px) {
+  .work__container {
+    height: 100vh;
+    padding-top: 100px;
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+
+  .work__title:after {
+    width: 55%;
+  }
+
+  .work__title span {
+    margin-right: var(--mb-0-5);
+  }
+
+  .center {
+    margin-top: 70px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  .work__container {
+    height: 100vh;
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+  }
+  .work__title:after {
+    width: 70%;
+  }
 }

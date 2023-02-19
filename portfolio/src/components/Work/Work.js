@@ -51,7 +51,7 @@ function Work() {
             <span aria-hidden="true">02</span>Work
           </h1>
         </div>
-        <div className="about__content">
+        <div className="work__content">
           <AliceCarousel
             mouseTracking
             items={items}
