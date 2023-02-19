@@ -8,7 +8,7 @@ import Work from "./components/Work/Work";
 import "./App.css";
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
