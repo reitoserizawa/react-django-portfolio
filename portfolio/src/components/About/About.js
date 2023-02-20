@@ -2,26 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
 import image from "../../images/about__blob.jpg";
-import Typewriter from "typewriter-effect";
+import Loading from "../Loading/Loading";
 
 function About() {
   const [aboutLoading, setAboutLoading] = useState(true);
   return (
     <>
       {aboutLoading ? (
-        <div id="loading-parent">
-          <div id="loading-child">
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString("About")
-                  .deleteAll()
-                  .callFunction(() => setAboutLoading(false))
-                  .start();
-              }}
-            />
-          </div>
-        </div>
+        <Loading
+          title="About"
+          setLoading={setAboutLoading}
+          loading={aboutLoading}
+        />
       ) : (
         <section id="about" className="about section">
           <div className="about__container container grid">
@@ -60,7 +52,7 @@ function About() {
                   I have recently been working with a few technologies below:
                 </p>
                 <div className="about__technologies">
-                  <ul class="grid">
+                  <ul className="grid">
                     <li>Python</li>
                     <li>Django</li>
                     <li>Java</li>
@@ -70,7 +62,7 @@ function About() {
                   </ul>
                 </div>
               </div>
-              <div class="about__blob">
+              <div className="about__blob">
                 <div className="about__blob__image__container">
                   <img src={image} alt="profile" />
                 </div>
@@ -84,21 +76,21 @@ function About() {
                     <div className="about__blob__data">
                       <a href="https://www.linkedin.com/in/reitos/">
                         <h3>
-                          <i class="fa-brands fa-linkedin-in"></i>
+                          <i className="fa-brands fa-linkedin-in"></i>
                           <br />
                           <span>LinkedIn</span>
                         </h3>
                       </a>
                       <a href="https://www.github.com/reitoserizawa">
                         <h3>
-                          <i class="fa-brands fa-github"></i>
+                          <i className="fa-brands fa-github"></i>
                           <br />
                           <span>GitHub</span>
                         </h3>
                       </a>
                       <a href="https://medium.com/@s.reitiger">
                         <h3>
-                          <i class="fa-brands fa-medium"></i>
+                          <i className="fa-brands fa-medium"></i>
                           <br />
                           <span>Medium</span>
                         </h3>

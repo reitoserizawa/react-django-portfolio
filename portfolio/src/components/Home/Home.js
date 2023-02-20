@@ -21,7 +21,7 @@ function Home() {
                   href="https://github.com/reitoserizawa"
                   tagret="_blank"
                 >
-                  <i class="fa-brands fa-github fa-xl"></i>
+                  <i className="fa-brands fa-github fa-xl"></i>
                 </a>
                 <a
                   className="home__social-icon"
@@ -33,8 +33,12 @@ function Home() {
               </div>
             </div>
           </div>
-          <div class="home__blob">
-            <img class="home__blob-profile" src={image} alt="home-profile" />
+          <div className="home__blob">
+            <img
+              className="home__blob-profile"
+              src={image}
+              alt="home-profile"
+            />
           </div>
           <div className="home__data">
             <h1 className="home__title">Reito Serizawa</h1>
@@ -48,13 +52,6 @@ function Home() {
               Contact me<i className="fa-regular fa-envelope button__icon"></i>
             </a>
           </div>
-          {/* <div class="home__scroll">
-            <a href="#about" class="home__scroll-button button--flex">
-              <i class="fa-solid fa-computer-mouse home__scroll-mouse"></i>
-              <span class="home__scroll-name">Scroll down</span>
-              <i class="fa-solid fa-arrow-down home__scroll-arrow"></i>
-            </a>
-          </div> */}
         </div>
       </div>
     </section>

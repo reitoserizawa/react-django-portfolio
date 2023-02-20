@@ -1,69 +1,41 @@
 import { useState } from "react";
 import "./Work.css";
+import Loading from "../Loading/Loading";
 import WorkCard from "../WorkCard/WorkCard";
-import image from "../../images/sample1.jpeg";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import Typewriter from "typewriter-effect";
-
-const responsive = {
-  0: { items: 1 },
-  568: { items: 2 },
-  1024: { items: 3 },
-};
-
-const handleDragStart = (e) => e.preventDefault();
-const items = [
-  <div class="center">
-    <WorkCard />
-  </div>,
-  <div class="center">
-    <WorkCard />
-  </div>,
-
-  <div class="center">
-    <WorkCard />
-  </div>,
-
-  <div class="center">
-    <WorkCard />
-  </div>,
-
-  <div class="center">
-    <WorkCard />
-  </div>,
-  <div class="center">
-    <WorkCard />
-  </div>,
-  <div class="center">
-    <WorkCard />
-  </div>,
-  <div class="center">
-    <WorkCard />
-  </div>,
-  <div class="center">
-    <WorkCard />
-  </div>,
-];
 
 function Work() {
   const [workLoading, setWorkLoading] = useState(true);
+  const [modal, setModal] = useState(false);
+
+  const items = [
+    <div className="center">
+      <WorkCard setModal={setModal} modal={modal} />
+    </div>,
+    <div className="center">
+      <WorkCard setModal={setModal} modal={modal} />
+    </div>,
+
+    <div className="center">
+      <WorkCard setModal={setModal} modal={modal} />
+    </div>,
+  ];
+
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
+
   return (
     <>
       {workLoading ? (
-        <div id="loading-parent">
-          <div id="loading-child">
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString("Work")
-                  .deleteAll()
-                  .callFunction(() => setWorkLoading(false))
-                  .start();
-              }}
-            />
-          </div>
-        </div>
+        <Loading
+          title="Work"
+          setLoading={setWorkLoading}
+          loading={workLoading}
+        />
       ) : (
         <section id="work" className="work section">
           <div className="work__container container">
@@ -78,12 +50,36 @@ function Work() {
                 items={items}
                 responsive={responsive}
                 controlsStrategy="alternate"
-                autoPlay={true}
+                autoPlay={!modal}
                 autoPlayInterval={1500}
                 infinite={true}
               />
             </div>
           </div>
+          {/* modal */}
+          {/* <div className={modal ? "work__modal active-modal" : "work__modal"}>
+            <div className="work__modal-content">
+              <h4 className="work__modal-title">Designer</h4>
+              <i
+                class="fa-solid fa-xmark work__modal-close"
+                onClick={() => setModal(false)}
+              ></i>
+              <ul className="work__modal-services grid">
+                <li className="work__modal-service">
+                  <i class="fa-solid fa-laptop work__modal-icon"></i>
+                  <p>I develop user interface</p>
+                </li>
+                <li className="work__modal-service">
+                  <i class="fa-solid fa-laptop work__modal-icon"></i>
+                  <p>I develop user interface</p>
+                </li>
+                <li className="work__modal-service">
+                  <i class="fa-solid fa-laptop work__modal-icon"></i>
+                  <p>I develop user interface</p>
+                </li>
+              </ul>
+            </div>
+          </div> */}
         </section>
       )}
     </>

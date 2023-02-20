@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import "./WorkCard.css";
-
 import sample1 from "../../images/sample1.jpeg";
 import sample2 from "../../images/sample2.png";
 import sample3 from "../../images/sample3.png";
@@ -11,44 +11,48 @@ function WorkCard() {
       <div className="work_card__container">
         <div className="work_card__front">
           <img className="work_card__thumbnail" src={sample1} alt="sample" />
-          <h3 className="work_card__name">Project Name</h3>
+          <h3 className="work_card__name" alt="project cover">
+            Project Name
+          </h3>
           <div className="work_card__stats">
             <p className="work_card__left">Techs</p>
             <div className="work_card__techs">
-              <img src={sample2} alt="sample" />
-              <img src={sample3} alt="sample" />
-              <img src={sample4} alt="sample" />
+              <img src={sample2} alt="tech icon" />
+              <img src={sample3} alt="tech icon" />
+              <img src={sample4} alt="tech icon" />
             </div>
           </div>
         </div>
         <div className="work_card__back">
           <div className="work_card__links">
             <p className="work_card__link">
-              <i class="fa-brands fa-github"></i>
+              <i className="fa-brands fa-github"></i>
               <span>GitHub</span>
             </p>
             <p className="work_card__link">
-              <i class="fa-brands fa-youtube"></i>
+              <i className="fa-brands fa-youtube"></i>
               <span>Demo</span>
             </p>
           </div>
-          <button class="work_card__btn">See details</button>
+          <Link to={`/work/1`}>
+            <button className="work_card__btn">See details</button>
+          </Link>
           <div className="work_card__techs">
             <div className="work_card__tech">
               <div className="work_card__tech_icon">
-                <img src={sample2} />
+                <img src={sample2} alt="tech icon" />
               </div>
               <p className="work_card__tech_name">JS</p>
             </div>
             <div className="work_card__tech">
               <div className="work_card__tech_icon">
-                <img src={sample3} />
+                <img src={sample3} alt="tech icon" />
               </div>
               <p className="work_card__tech_name">Python</p>
             </div>
             <div className="work_card__tech">
               <div className="work_card__tech_icon">
-                <img src={sample4} />
+                <img src={sample4} alt="tech icon" />
               </div>
               <p className="work_card__tech_name">SQL</p>
             </div>
