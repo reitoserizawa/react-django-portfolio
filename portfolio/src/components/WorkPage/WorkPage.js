@@ -7,7 +7,8 @@ function WorkPage() {
       <div className="work_page__container container grid">
         <div className="work_page__title__container">
           <h1 className="work_page__title">
-            <span aria-hidden="true">02.01</span>Zoomies
+            <span aria-hidden="true">02</span>Work
+            <span aria-hidden="true">:</span>Zoomies
           </h1>
         </div>
         <div className="work_page__cover">
@@ -16,17 +17,22 @@ function WorkPage() {
         <div className="work_page__content grid">
           <div className="work_page__details">
             <p>
-              I was born and raised in Japan and immigrated to the U.S. in
-              December, 2021. In Japan, tipping can be seen as rude because they
-              value dignity and respect much more than tipping. Though, since it
-              is a common practice, I wanted to make an application that you can
-              tip without letting them know. In addition, I wanted to connect
-              othwer people with good restaurants, as well as know about servers
-              other than their service, so I made a review and profile system
-              for both restaurants and servers.
+              This is a dog park application created with front-end
+              technologies, such as JavaScript and React, as well as back-end
+              technologies, such as Ruby and Ruby on Rails, and the database
+              management system PostgreSQL.
+            </p>
+            <p>
+              You can create a profile of yourself and pet dogs, and check in
+              and out at dog parks in NYC.
+            </p>
+            <p>
+              You can also see dogs that are checked in at each dog park with
+              profiles and how busy the dog park is.
             </p>
           </div>
           <div className="work_page__skills">
+            <h4>Technologies</h4>
             <ul>
               <li>JavaScript</li>
               <li>React</li>
@@ -34,12 +40,13 @@ function WorkPage() {
               <li>Ruby on Rails</li>
               <li>PostgreSQL</li>
             </ul>
-            <ul>
+            {/* <div className="work_page__links"> */}
+            <ul className="work_page__links">
               <li>GitHub</li>
               <li>Demo</li>
             </ul>
+            {/* </div> */}
           </div>
-          <div className="work_page__links"></div>
         </div>
       </div>
     </section>

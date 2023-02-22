@@ -1,13 +1,12 @@
 @import "react-alice-carousel/lib/alice-carousel.css";
 
-#work {
-  height: 100vh;
-  position: relative;
+.work__container {
+  height: 100%;
 }
 
 .center {
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 90px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,13 +19,21 @@
   background: gray !important;
 }
 
+.alice-carousel__dots {
+  margin: 0px 3px 5px !important;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  padding: 0px 5px !important;
+}
+
 .work__container {
-  padding-top: 11rem;
+  /* padding-top: 11rem; */
 }
 
 .work__title {
   font-size: var(--h1-font-size);
-  margin-bottom: var(--mb-2);
 }
 .work__title:after {
   background-color: #000;
@@ -60,7 +67,7 @@
   }
 
   .center {
-    margin-top: 70px;
+    margin-top: 75px;
     margin-bottom: 40px;
   }
 }
