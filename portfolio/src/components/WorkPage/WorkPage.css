@@ -35,9 +35,6 @@
   margin: auto;
 }
 
-.work_page__cover img {
-}
-
 /* content */
 .work_page__content {
   grid-template-columns: 3fr 2fr;
@@ -52,12 +49,10 @@
   margin-bottom: var(--mb-1);
 }
 
-.work_page__details {
-}
-
 .work_page__skills {
   display: grid;
   justify-items: center;
+  align-items: center;
 }
 
 .work_page__skills h4 {
@@ -86,11 +81,6 @@
 .work_page__link_list {
   columns: 2;
   margin-top: var(--mb-1);
-  align-items: end;
   column-rule: 1px solid black;
-}
-
-.work_page__links ul li {
-  margin-bottom: 0px;
   font-size: var(--h3-font-size);
 }

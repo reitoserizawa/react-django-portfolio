@@ -41,16 +41,15 @@ function WorkPage() {
                 <li>Ruby on Rails</li>
                 <li>PostgreSQL</li>
               </ul>
-              <div className="work_page__links">
-                <ul className="work_page__link_list">
-                  <li>
-                    <i class="fa-brands fa-github"></i>
-                  </li>
-                  <li>
-                    <i class="fa-brands fa-youtube"></i>
-                  </li>
-                </ul>
-              </div>
+
+              <ul className="work_page__link_list">
+                <li>
+                  <i class="fa-brands fa-github"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-youtube"></i>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
