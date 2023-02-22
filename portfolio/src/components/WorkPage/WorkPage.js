@@ -31,21 +31,27 @@ function WorkPage() {
               profiles and how busy the dog park is.
             </p>
           </div>
-          <div className="work_page__skills">
-            <h4>Technologies</h4>
-            <ul>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Ruby</li>
-              <li>Ruby on Rails</li>
-              <li>PostgreSQL</li>
-            </ul>
-            {/* <div className="work_page__links"> */}
-            <ul className="work_page__links">
-              <li>GitHub</li>
-              <li>Demo</li>
-            </ul>
-            {/* </div> */}
+          <div>
+            <div className="work_page__skills">
+              <ul className="work_page__skill_list">
+                <h4>Technologies</h4>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Ruby</li>
+                <li>Ruby on Rails</li>
+                <li>PostgreSQL</li>
+              </ul>
+              <div className="work_page__links">
+                <ul className="work_page__link_list">
+                  <li>
+                    <i class="fa-brands fa-github"></i>
+                  </li>
+                  <li>
+                    <i class="fa-brands fa-youtube"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
