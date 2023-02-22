@@ -5,11 +5,12 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Work from "./components/Work/Work";
 import WorkPage from "./components/WorkPage/WorkPage";
+import BlogCard from "./components/BlogCard/BlogCard";
 import Loading from "./components/Loading/Loading";
 import "./App.css";
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
@@ -24,13 +25,10 @@ function App() {
           <NavBar />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route
-              exact
-              path="/about"
-              element={<About setLoading={setLoading} loading={loading} />}
-            />
+            <Route exact path="/about" element={<About />} />
             <Route exact path="/work" element={<Work />} />
             <Route exact path="/work/:id" element={<WorkPage />} />
+            <Route exact path="/blog" element={<BlogCard />} />
           </Routes>
         </>
       )}
