@@ -1,69 +1,41 @@
-/*-----------------------------------*\
- #style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2021 @codewithsadee 
- */
-
-/*-----------------------------------*\
- #VARIABLES
-\*-----------------------------------*/
-
 :root {
-  /**
-     * Colors 
-     */
-
   --very-dark-grayish-blue: hsl(217, 19%, 35%);
   --desaturated-dark-blue: hsl(214, 17%, 51%);
   --light-grayish-blue: hsl(210, 46%, 95%);
   --grayish-blue: hsl(212, 23%, 69%);
   --white: hsl(0, 0%, 100%);
-
-  /**
-     * Typography 
-     */
-
-  --fs-13: 13px;
 }
 
-/*-----------------------------------*\
-   #RESET & DEFAULT
-  \*-----------------------------------*/
+/* resetting for the card part */
 
 .article-card a {
   text-decoration: none;
-  color: var(--white);
+  color: white;
 }
 
-button {
+.article-card button {
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-img,
+.article-card img,
 ion-icon {
   display: block;
 }
 
-body {
-  min-height: 100vh;
+/* slide container */
+.slide_container {
+  position: absolute;
+  height: 70%;
+  top: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: white;
-  padding: 20px;
+  justify-content: center;
+  transform-origin: 50% 50%;
 }
 
-/*-----------------------------------*\
-   #MAIN STYLE
-  \*-----------------------------------*/
-
-/**
-   * article card 
-   */
+/* article card */
 
 .article-card {
   display: grid;
@@ -105,7 +77,7 @@ body {
 
 .article-text {
   color: #666666;
-  font-size: var(--fs-13);
+  font-size: var(--normal-font-size);
   line-height: 1.5;
   margin-bottom: 18px;
 }
@@ -221,14 +193,6 @@ body {
   \*-----------------------------------*/
 
 @media screen and (max-width: 768px) {
-  :root {
-    /**
-       * Typography 
-       */
-
-    --fs-13: 12px;
-  }
-
   /**
      * article card responsive
      */

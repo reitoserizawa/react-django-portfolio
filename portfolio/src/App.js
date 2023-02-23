@@ -5,12 +5,12 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Work from "./components/Work/Work";
 import WorkPage from "./components/WorkPage/WorkPage";
-import BlogCard from "./components/BlogCard/BlogCard";
+import Blog from "./components/Blog/Blog";
 import Loading from "./components/Loading/Loading";
 import "./App.css";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   return (
     <>
@@ -28,7 +28,7 @@ function App() {
             <Route exact path="/about" element={<About />} />
             <Route exact path="/work" element={<Work />} />
             <Route exact path="/work/:id" element={<WorkPage />} />
-            <Route exact path="/blog" element={<BlogCard />} />
+            <Route exact path="/blog" element={<Blog />} />
           </Routes>
         </>
       )}

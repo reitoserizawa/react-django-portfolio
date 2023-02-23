@@ -1,0 +1,47 @@
+/* blog page nav buttons */
+
+.blog__nav_bttns {
+  position: relative;
+  display: flex;
+  height: 60px;
+  margin: 0 auto;
+  width: 20%;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.blog__nav_bttn {
+  background: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  width: 50px;
+  text-align: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border: none;
+
+  cursor: pointer;
+}
+
+.blog__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+
+.blog__content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.blog__container {
+  margin-top: 100px;
+}
