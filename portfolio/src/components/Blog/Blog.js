@@ -17,29 +17,29 @@ let slides = [
   },
 ];
 
-export default class Example extends Component {
-  state = {
-    goToSlide: 0,
-    offsetRadius: 2,
-    config: config.gentle,
-  };
+function Example() {
+  // state = {
+  //   goToSlide: 0,
+  //   offsetRadius: 2,
+  //   config: config.gentle,
+  // };
 
-  render() {
-    return (
-      <section id="blog" className="blog section">
-        <div className="blog__container container">
-          <h1>
-            <span aria-hidden="true">03</span>Blog
-          </h1>
-        </div>
-        <div className="blog__content">
-          <VerticalCarousel
-            slides={slides}
-            offsetRadius={this.state.offsetRadius}
-            animationConfig={this.state.config}
-          />
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section id="blog" className="blog section">
+      <div className="blog__container container">
+        <h1>
+          <span aria-hidden="true">03</span>Blog
+        </h1>
+      </div>
+      <div className="blog__content">
+        <VerticalCarousel
+          slides={slides}
+          // offsetRadius={this.state.offsetRadius}
+          // animationConfig={this.state.config}
+        />
+      </div>
+    </section>
+  );
 }
+
+export default Example;

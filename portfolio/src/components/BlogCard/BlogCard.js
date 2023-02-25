@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./BlogCard.css";
 import image from "../../images/about__blob.jpg";
 import { Spring } from "react-spring/renderprops";
@@ -14,6 +14,16 @@ function BlogCard({
   up,
 }) {
   const [toggleShare, setToggleShare] = useState(false);
+  const [pause, setPause] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (pause === false) {
+        moveSlide(1);
+      }
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   const offsetFromMiddle = index - offsetRadius;
   const totalPresentables = 2 * offsetRadius + 1;
@@ -63,6 +73,8 @@ function BlogCard({
             ...style,
             zIndex: Math.abs(Math.abs(offsetFromMiddle) - 2),
           }}
+          onMouseEnter={() => setPause(true)}
+          onMouseLeave={() => setPause(false)}
         >
           <article class="article-card">
             <div class="img-box">
