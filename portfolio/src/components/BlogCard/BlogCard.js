@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./BlogCard.css";
 import image from "../../images/about__blob.jpg";
 import { Spring } from "react-spring/renderprops";
 
 function BlogCard({
-  content,
   offsetRadius,
   index,
   animationConfig,
@@ -14,16 +13,6 @@ function BlogCard({
   up,
 }) {
   const [toggleShare, setToggleShare] = useState(false);
-  const [pause, setPause] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (pause === false) {
-        moveSlide(1);
-      }
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
 
   const offsetFromMiddle = index - offsetRadius;
   const totalPresentables = 2 * offsetRadius + 1;
@@ -73,26 +62,24 @@ function BlogCard({
             ...style,
             zIndex: Math.abs(Math.abs(offsetFromMiddle) - 2),
           }}
-          onMouseEnter={() => setPause(true)}
-          onMouseLeave={() => setPause(false)}
         >
-          <article class="article-card">
-            <div class="img-box">
+          <article className="article-card">
+            <div className="img-box">
               <img
                 src="https://media.gcflearnfree.org/content/55e0730c7dd48174331f5164_01_17_2014/whatisacomputer_pc.jpg"
                 alt=""
-                class="article-banner"
+                className="article-banner"
               />
             </div>
 
-            <div class="article-content">
-              <a href="#">
-                <h3 class="article-title">
+            <div className="article-content">
+              <a>
+                <h3 className="article-title">
                   Authentication Steps for Ruby on Rails
                 </h3>
               </a>
 
-              <p class="article-text">
+              <p className="article-text">
                 When you are creating a website, it is very common to have the
                 authentication features, such as log-in, log-out and sign-up.
                 These features are much easier to code using Ruby on Rails. In
@@ -100,38 +87,40 @@ function BlogCard({
                 step.
               </p>
 
-              <div class="acticle-content-footer">
-                <div class="author">
-                  <img src={image} alt="" class="author-avater" />
+              <div className="acticle-content-footer">
+                <div className="author">
+                  <img src={image} alt="" className="author-avater" />
 
-                  <div class="author-info">
+                  <div className="author-info">
                     <a href="#">
-                      <h4 class="author-name">Reito Serizawa</h4>
+                      <h4 className="author-name">Reito Serizawa</h4>
                     </a>
-                    <div class="publish-date">11 Nov 2011</div>
+                    <div className="publish-date">11 Nov 2011</div>
                   </div>
                 </div>
 
-                <div class="share">
+                <div className="share">
                   <button
-                    class="share-button"
+                    className="share-button"
                     onClick={() => setToggleShare(!toggleShare)}
                   >
                     <ion-icon name="arrow-redo"></ion-icon>
                   </button>
 
                   <div
-                    class={toggleShare ? "share-option active" : "share-option"}
+                    className={
+                      toggleShare ? "share-option active" : "share-option"
+                    }
                   >
                     <span>Share</span>
 
-                    <a href="#">
+                    <a>
                       <ion-icon name="logo-facebook"></ion-icon>
                     </a>
-                    <a href="#">
+                    <a>
                       <ion-icon name="logo-twitter"></ion-icon>
                     </a>
-                    <a href="#">
+                    <a>
                       <ion-icon name="logo-pinterest"></ion-icon>
                     </a>
                   </div>

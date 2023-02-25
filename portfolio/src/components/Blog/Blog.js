@@ -1,45 +1,31 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import VerticalCarousel from "./VerticalCarousel";
-import { config } from "react-spring";
+import Loading from "../Loading/Loading";
 
-let slides = [
-  {
-    key: 1,
-    content: "1",
-  },
-  {
-    key: 2,
-    content: "2",
-  },
-  {
-    key: 3,
-    content: "2",
-  },
-];
-
-function Example() {
-  // state = {
-  //   goToSlide: 0,
-  //   offsetRadius: 2,
-  //   config: config.gentle,
-  // };
-
+function Blog() {
+  const [blogLoading, setBlogLoading] = useState(true);
   return (
-    <section id="blog" className="blog section">
-      <div className="blog__container container">
-        <h1>
-          <span aria-hidden="true">03</span>Blog
-        </h1>
-      </div>
-      <div className="blog__content">
-        <VerticalCarousel
-          slides={slides}
-          // offsetRadius={this.state.offsetRadius}
-          // animationConfig={this.state.config}
+    <>
+      {blogLoading ? (
+        <Loading
+          title="Blog"
+          setLoading={setBlogLoading}
+          loading={blogLoading}
         />
-      </div>
-    </section>
+      ) : (
+        <section id="blog" className="blog section">
+          <div className="blog__container container">
+            <h1>
+              <span aria-hidden="true">03</span>Blog
+            </h1>
+          </div>
+          <div className="blog__content">
+            <VerticalCarousel />
+          </div>
+        </section>
+      )}
+    </>
   );
 }
 
-export default Example;
+export default Blog;

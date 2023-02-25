@@ -1,120 +1,96 @@
-import React, { Component } from "react";
-import styled from "@emotion/styled";
+import { useState, useEffect } from "react";
 import BlogCard from "../BlogCard/BlogCard";
-import PropTypes from "prop-types";
 import "./Blog.css";
 
-function mod(a, b) {
-  return ((a % b) + b) % b;
-}
+function VerticalCarousel() {
+  const [index, setIndex] = useState(0);
+  const [pause, setPause] = useState(false);
 
-class VerticalCarousel extends React.Component {
-  state = {
-    index: 0,
-    goToSlide: null,
-    prevPropsGoToSlide: 0,
-    newSlide: false,
-  };
-
-  componentDidMount = () => {
+  useEffect(() => {
     document.addEventListener("keydown", (event) => {
-      if (event.isComposing || event.keyCode === 229) {
-        return;
+      if (event === 38) {
+        moveSlide(-1);
       }
-      if (event.keyCode === 38) {
-        this.moveSlide(-1);
-      }
-      if (event.keyCode === 40) {
-        this.moveSlide(1);
+      if (event === 40) {
+        moveSlide(1);
       }
     });
+
+    const interval = setInterval(() => {
+      if (pause === false) {
+        moveSlide(1);
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  });
+
+  let offsetRadius = 2;
+  let animationConfig = { tension: 120, friction: 14 };
+  let slides = [1, 2, 3]; // slide length for each var below
+
+  const mod = (a, b) => {
+    return ((a % b) + b) % b;
   };
 
-  static propTypes = {
-    slides: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.any,
-        content: PropTypes.object,
-      })
-    ).isRequired,
-    goToSlide: PropTypes.number,
-
-    offsetRadius: PropTypes.number,
-    animationConfig: PropTypes.object,
+  const modBySlidesLength = (index) => {
+    return mod(index, slides.length); //change the slide length
   };
 
-  static defaultProps = {
-    offsetRadius: 2,
-    animationConfig: { tension: 120, friction: 14 },
+  const moveSlide = (direction) => {
+    setIndex(modBySlidesLength(index + direction));
   };
 
-  modBySlidesLength = (index) => {
-    return mod(index, this.props.slides.length);
-  };
-
-  moveSlide = (direction) => {
-    this.setState({
-      index: this.modBySlidesLength(this.state.index + direction),
-      goToSlide: null,
-    });
-  };
-
-  clampOffsetRadius(offsetRadius) {
-    const { slides } = this.props;
-    const upperBound = Math.floor((slides.length - 1) / 2);
-
+  const clampOffsetRadius = (offsetRadius) => {
+    const upperBound = Math.floor((slides.length - 1) / 2); // change the slide length
     if (offsetRadius < 0) {
       return 0;
     }
     if (offsetRadius > upperBound) {
       return upperBound;
     }
-
     return offsetRadius;
-  }
+  };
 
-  getPresentableSlides() {
-    const { slides } = this.props;
-    const { index } = this.state;
-    let { offsetRadius } = this.props;
-    offsetRadius = this.clampOffsetRadius(offsetRadius);
-    const presentableSlides = new Array();
-
-    for (let i = -offsetRadius; i < 1 + offsetRadius; i++) {
-      presentableSlides.push(slides[this.modBySlidesLength(index + i)]);
+  const getPresentableSlides = () => {
+    let newOffsetRadius = clampOffsetRadius(offsetRadius);
+    const presentableSlides = [];
+    for (let i = -newOffsetRadius; i < 1 + newOffsetRadius; i++) {
+      presentableSlides.push(slides[modBySlidesLength(index + i)]);
     }
-
     return presentableSlides;
-  }
+  };
 
-  render() {
-    const { animationConfig, offsetRadius } = this.props;
-
-    return (
-      <>
-        <div className="blog__wrapper">
-          {this.getPresentableSlides().map((slide, presentableIndex) => (
-            <BlogCard
-              key={slide.key}
-              content={slide.content}
-              moveSlide={this.moveSlide}
-              offsetRadius={this.clampOffsetRadius(offsetRadius)}
-              index={presentableIndex}
-              animationConfig={animationConfig}
-            />
-          ))}
-        </div>
-        <div className="blog__nav_bttns">
-          <button className="blog__nav_bttn" onClick={() => this.moveSlide(1)}>
-            <i class="fa-solid fa-arrow-up"></i>
-          </button>
-          <button className="blog__nav_bttn" onClick={() => this.moveSlide(-1)}>
-            <i class="fa-solid fa-arrow-down"></i>
-          </button>
-        </div>
-      </>
-    );
-  }
+  return (
+    <>
+      <div
+        className="blog__wrapper"
+        onMouseEnter={() => setPause(true)}
+        onMouseLeave={() => setPause(false)}
+      >
+        {getPresentableSlides().map((slide, presentableIndex) => (
+          <BlogCard
+            key={slide} // data key
+            moveSlide={moveSlide}
+            offsetRadius={clampOffsetRadius(offsetRadius)}
+            index={presentableIndex}
+            animationConfig={animationConfig}
+          />
+        ))}
+      </div>
+      <div
+        className="blog__nav_bttns"
+        onMouseEnter={() => setPause(true)}
+        onMouseLeave={() => setPause(false)}
+      >
+        <button className="blog__nav_bttn" onClick={() => moveSlide(1)}>
+          <i className="fa-solid fa-arrow-up"></i>
+        </button>
+        <button className="blog__nav_bttn" onClick={() => moveSlide(-1)}>
+          <i className="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+    </>
+  );
 }
 
 export default VerticalCarousel;
