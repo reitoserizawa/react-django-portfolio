@@ -82,9 +82,6 @@ function BlogCard({
               <p className="article-text">
                 When you are creating a website, it is very common to have the
                 authentication features, such as log-in, log-out and sign-up.
-                These features are much easier to code using Ruby on Rails. In
-                this article, I will explain how to make these features step by
-                step.
               </p>
 
               <div className="acticle-content-footer">

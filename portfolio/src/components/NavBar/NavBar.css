@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   background-color: white;
-  z-index: 1000;
+  z-index: 100000;
 }
 
 .mobile-nav-toggle {
@@ -46,7 +46,7 @@
   }
   .mobile-nav-toggle {
     position: absolute;
-    z-index: 9999;
+    z-index: 100000;
     width: 2rem;
     aspect-ratio: 1;
     /* top: 2rem; */
