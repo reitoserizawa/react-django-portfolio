@@ -44,10 +44,10 @@ function WorkPage() {
 
               <ul className="work_page__link_list">
                 <li>
-                  <i class="fa-brands fa-github"></i>
+                  <i className="fa-brands fa-github"></i>
                 </li>
                 <li>
-                  <i class="fa-brands fa-youtube"></i>
+                  <i className="fa-brands fa-youtube"></i>
                 </li>
               </ul>
             </div>

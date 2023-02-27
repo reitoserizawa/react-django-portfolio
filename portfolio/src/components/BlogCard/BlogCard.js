@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./BlogCard.css";
-import image from "../../images/about__blob.jpg";
 import { Spring } from "react-spring/renderprops";
 
 function BlogCard({
+  data,
   offsetRadius,
   index,
   animationConfig,
@@ -11,6 +11,7 @@ function BlogCard({
   delta,
   down,
   up,
+  author,
 }) {
   const [toggleShare, setToggleShare] = useState(false);
 
@@ -44,6 +45,27 @@ function BlogCard({
     translateY -= translateYoffset;
   }
 
+  const convertHTMLtoText = (html) => {
+    let conversion = html.trim();
+    let position = conversion.search("<p>") + 3;
+    let words = conversion.slice(position);
+    return getWordStr(words);
+  };
+
+  const getWordStr = (str) => {
+    return str.split(/\s+/).slice(0, 30).join(" ");
+  };
+
+  function getFormattedDate(pubDate) {
+    const date = new Date(pubDate);
+    let year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : "0" + month;
+    let day = date.getDate().toString();
+    day = day.length > 1 ? day : "0" + day;
+    return month + "/" + day + "/" + year;
+  }
+
   return (
     <Spring
       to={{
@@ -65,34 +87,31 @@ function BlogCard({
         >
           <article className="article-card">
             <div className="img-box">
-              <img
-                src="https://media.gcflearnfree.org/content/55e0730c7dd48174331f5164_01_17_2014/whatisacomputer_pc.jpg"
-                alt=""
-                className="article-banner"
-              />
+              <img src={data.thumbnail} alt="" className="article-banner" />
             </div>
 
             <div className="article-content">
-              <a>
-                <h3 className="article-title">
-                  Authentication Steps for Ruby on Rails
-                </h3>
-              </a>
+              <a href={data.link}>
+                <h3 className="article-title">{data.title}</h3>
 
-              <p className="article-text">
-                When you are creating a website, it is very common to have the
-                authentication features, such as log-in, log-out and sign-up.
-              </p>
+                <p className="article-text">
+                  {convertHTMLtoText(data.description)}...
+                </p>
+              </a>
 
               <div className="acticle-content-footer">
                 <div className="author">
-                  <img src={image} alt="" className="author-avater" />
-
+                  <a href={author.link}>
+                    <img src={author.image} alt="" className="author-avater" />
+                  </a>
                   <div className="author-info">
-                    <a href="#">
-                      <h4 className="author-name">Reito Serizawa</h4>
+                    <a href={author.link}>
+                      <h4 className="author-name">{data.author}</h4>
                     </a>
-                    <div className="publish-date">11 Nov 2011</div>
+
+                    <div className="publish-date">
+                      {getFormattedDate(data.pubDate)}
+                    </div>
                   </div>
                 </div>
 
@@ -101,7 +120,7 @@ function BlogCard({
                     className="share-button"
                     onClick={() => setToggleShare(!toggleShare)}
                   >
-                    <ion-icon name="arrow-redo"></ion-icon>
+                    <i className="fa-solid fa-link"></i>
                   </button>
 
                   <div
@@ -109,16 +128,14 @@ function BlogCard({
                       toggleShare ? "share-option active" : "share-option"
                     }
                   >
-                    <span>Share</span>
-
-                    <a>
-                      <ion-icon name="logo-facebook"></ion-icon>
+                    <a href="https://www.linkedin.com/in/reitos/">
+                      <i className="fa-brands fa-linkedin-in"></i>
                     </a>
-                    <a>
-                      <ion-icon name="logo-twitter"></ion-icon>
+                    <a href="https://github.com/reitoserizawa">
+                      <i className="fa-brands fa-github"></i>
                     </a>
-                    <a>
-                      <ion-icon name="logo-pinterest"></ion-icon>
+                    <a href="https://medium.com/@s.reitiger">
+                      <i className="fa-brands fa-medium"></i>
                     </a>
                   </div>
                 </div>

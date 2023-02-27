@@ -5,17 +5,10 @@ import "./Blog.css";
 function VerticalCarousel() {
   const [index, setIndex] = useState(0);
   const [pause, setPause] = useState(false);
+  const [articles, setArticles] = useState([]);
+  const [author, setAuthor] = useState([]);
 
   useEffect(() => {
-    document.addEventListener("keydown", (event) => {
-      if (event === 38) {
-        moveSlide(-1);
-      }
-      if (event === 40) {
-        moveSlide(1);
-      }
-    });
-
     const interval = setInterval(() => {
       if (pause === false) {
         moveSlide(1);
@@ -24,9 +17,20 @@ function VerticalCarousel() {
     return () => clearInterval(interval);
   });
 
+  useEffect(() => {
+    fetch(
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@s.reitiger"
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        setArticles(data.items);
+        setAuthor(data.feed);
+      });
+  }, []);
+
   let offsetRadius = 2;
   let animationConfig = { tension: 120, friction: 14 };
-  let slides = [1, 2, 3]; // slide length for each var below
+  let slides = articles;
 
   const mod = (a, b) => {
     return ((a % b) + b) % b;
@@ -69,7 +73,9 @@ function VerticalCarousel() {
       >
         {getPresentableSlides().map((slide, presentableIndex) => (
           <BlogCard
-            key={slide} // data key
+            key={slide.pubDate} // data key
+            data={slide}
+            author={author}
             moveSlide={moveSlide}
             offsetRadius={clampOffsetRadius(offsetRadius)}
             index={presentableIndex}
