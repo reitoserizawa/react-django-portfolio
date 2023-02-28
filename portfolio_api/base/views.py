@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from .models import Contact, Technology
-from .serializers import ContactSerializer, TechnologySerializer
+from .models import Contact, Technology, Project
+from .serializers import ContactSerializer, TechnologySerializer, ProjectSerializer
 
 @api_view(['GET'])
 def contacts_list(request):
@@ -17,3 +17,23 @@ def technologies_list(request):
         data = Technology.objects.all()
         serializer = TechnologySerializer(data, context={"request": request}, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+def get_technology(request, pk):
+    technology = Technology.objects.get(id=pk)
+    serializer = TechnologySerializer(technology, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def projects_list(request):
+    if request.method == 'GET':
+        data = Project.objects.all()
+        serializer = ProjectSerializer(data, context={"request": request}, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def get_project(request, pk):
+    project = Project.objects.get(id=pk)
+    serializer = ProjectSerializer(project, many=False)
+    return Response(serializer.data)
+

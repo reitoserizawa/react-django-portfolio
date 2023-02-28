@@ -1,65 +1,68 @@
 import { Link } from "react-router-dom";
 import "./WorkCard.css";
-import sample1 from "../../images/sample1.jpeg";
-import sample2 from "../../images/sample2.png";
-import sample3 from "../../images/sample3.png";
-import sample4 from "../../images/sample4.png";
 
-function WorkCard() {
+function WorkCard({ project }) {
+  const technologies_front = project.technologies.map((tech) => {
+    return <img src={tech.tech_thumbnail} alt="tech icon" />;
+  });
+
+  const technologies_back = project.technologies.map((tech) => {
+    return (
+      <div className="work_card__tech">
+        <div className="work_card__tech_icon">
+          <img src={tech.tech_thumbnail} alt="tech icon" />
+        </div>
+        <p className="work_card__tech_name">
+          {tech.name === "JavaScript" ? "JS" : tech.name}
+        </p>
+      </div>
+    );
+  });
+
   return (
     <>
       <div className="work_card__container">
         <div className="work_card__front">
-          <img className="work_card__thumbnail" src={sample1} alt="sample" />
+          <img
+            className="work_card__thumbnail"
+            src={project.project_thumbnail}
+            alt="sample"
+          />
           <h3 className="work_card__name" alt="project cover">
-            Project Name
+            {project.name}
           </h3>
           <div className="work_card__stats">
             <p className="work_card__left">Techs</p>
-            <div className="work_card__techs">
-              <img src={sample2} alt="tech icon" />
-              <img src={sample3} alt="tech icon" />
-              <img src={sample4} alt="tech icon" />
-            </div>
+            <div className="work_card__techs">{technologies_front}</div>
           </div>
         </div>
         <div className="work_card__back">
           <div className="work_card__links">
             <p className="work_card__link">
-              <i className="fa-brands fa-github"></i>
-              <span>GitHub</span>
+              <a href={project.github} style={{ color: "white" }}>
+                <i className="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
             </p>
+
             <p className="work_card__link">
-              <i className="fa-brands fa-youtube"></i>
-              <span>Demo</span>
+              <a href={project.demo} style={{ color: "white" }}>
+                <i className="fa-brands fa-youtube"></i>
+                <span>Demo</span>
+              </a>
             </p>
           </div>
           <Link to={`/work/1`}>
             <button className="work_card__btn">See details</button>
           </Link>
-          <div className="work_card__techs">
-            <div className="work_card__tech">
-              <div className="work_card__tech_icon">
-                <img src={sample2} alt="tech icon" />
-              </div>
-              <p className="work_card__tech_name">JS</p>
-            </div>
-            <div className="work_card__tech">
-              <div className="work_card__tech_icon">
-                <img src={sample3} alt="tech icon" />
-              </div>
-              <p className="work_card__tech_name">Python</p>
-            </div>
-            <div className="work_card__tech">
-              <div className="work_card__tech_icon">
-                <img src={sample4} alt="tech icon" />
-              </div>
-              <p className="work_card__tech_name">SQL</p>
-            </div>
-          </div>
+          <div className="work_card__techs">{technologies_back}</div>
         </div>
         <div className="work_card__background">
-          <img className="work_card__thumbnail" src={sample1} alt="sample" />
+          <img
+            className="work_card__thumbnail"
+            src={project.project_thumbnail}
+            alt="sample"
+          />
         </div>
       </div>
       <svg width="0" height="0" x="0px" y="0px">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Work.css";
 import Loading from "../Loading/Loading";
 import WorkCard from "../WorkCard/WorkCard";
@@ -8,19 +8,21 @@ import "react-alice-carousel/lib/alice-carousel.css";
 function Work() {
   const [workLoading, setWorkLoading] = useState(true);
   const [modal, setModal] = useState(false);
+  const [projects, setProjects] = useState([]);
 
-  const items = [
-    <div className="center">
-      <WorkCard setModal={setModal} modal={modal} />
-    </div>,
-    <div className="center">
-      <WorkCard setModal={setModal} modal={modal} />
-    </div>,
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/projects/")
+      .then((response) => response.json())
+      .then((data) => setProjects(data));
+  }, []);
 
-    <div className="center">
-      <WorkCard setModal={setModal} modal={modal} />
-    </div>,
-  ];
+  const items = projects.map((project) => {
+    return (
+      <div className="center">
+        <WorkCard setModal={setModal} modal={modal} project={project} />
+      </div>
+    );
+  });
 
   const responsive = {
     0: { items: 1 },
