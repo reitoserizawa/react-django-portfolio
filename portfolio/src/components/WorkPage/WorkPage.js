@@ -1,53 +1,63 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./WorkPage.css";
-import collage from "../../images/collage3.png";
 
 function WorkPage() {
+  const [project, setProject] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/api/projects/${params.id}`)
+      .then((r) => r.json())
+      .then((data) => setProject(data));
+  }, [params]);
+
+  // const convert_content = (data) => {
+  //   if (!data) return;
+  //   return data.replace(/\n/g, <br></br>);
+  // };
+
+  function insert_techs(data) {
+    if (!data) return;
+    return data.map((tech) => {
+      return <li key={tech.id}>{tech.name}</li>;
+    });
+  }
+
   return (
     <section id="work_page" className="work_page section">
       <div className="work_page__container container grid">
         <div className="work_page__title__container">
           <h1 className="work_page__title">
             <span aria-hidden="true">02</span>Work
-            <span aria-hidden="true">:</span>Zoomies
+            <span aria-hidden="true">:</span>
+            {project.name}
           </h1>
         </div>
         <div className="work_page__cover">
-          <img src={collage} alt="cover" />
+          <img src={project.project_main_image} alt="cover" />
         </div>
         <div className="work_page__content grid">
           <div className="work_page__details">
-            <p>
-              This is a dog park application created with front-end
-              technologies, such as JavaScript and React, as well as back-end
-              technologies, such as Ruby and Ruby on Rails, and the database
-              management system PostgreSQL.
-            </p>
-            <p>
-              You can create a profile of yourself and pet dogs, and check in
-              and out at dog parks in NYC.
-            </p>
-            <p>
-              You can also see dogs that are checked in at each dog park with
-              profiles and how busy the dog park is.
-            </p>
+            <p>{project.description}</p>
           </div>
           <div>
             <div className="work_page__skills">
               <ul className="work_page__skill_list">
                 <h4>Technologies</h4>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Ruby</li>
-                <li>Ruby on Rails</li>
-                <li>PostgreSQL</li>
+                {insert_techs(project.technologies)}
               </ul>
 
               <ul className="work_page__link_list">
                 <li>
-                  <i className="fa-brands fa-github"></i>
+                  <a href={project.github}>
+                    <i className="fa-brands fa-github"></i>
+                  </a>
                 </li>
                 <li>
-                  <i className="fa-brands fa-youtube"></i>
+                  <a href={project.demo}>
+                    <i className="fa-brands fa-youtube"></i>
+                  </a>
                 </li>
               </ul>
             </div>

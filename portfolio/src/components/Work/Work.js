@@ -19,7 +19,12 @@ function Work() {
   const items = projects.map((project) => {
     return (
       <div className="center">
-        <WorkCard setModal={setModal} modal={modal} project={project} />
+        <WorkCard
+          key={project.id}
+          setModal={setModal}
+          modal={modal}
+          project={project}
+        />
       </div>
     );
   });
@@ -58,30 +63,6 @@ function Work() {
               />
             </div>
           </div>
-          {/* modal */}
-          {/* <div className={modal ? "work__modal active-modal" : "work__modal"}>
-            <div className="work__modal-content">
-              <h4 className="work__modal-title">Designer</h4>
-              <i
-                class="fa-solid fa-xmark work__modal-close"
-                onClick={() => setModal(false)}
-              ></i>
-              <ul className="work__modal-services grid">
-                <li className="work__modal-service">
-                  <i class="fa-solid fa-laptop work__modal-icon"></i>
-                  <p>I develop user interface</p>
-                </li>
-                <li className="work__modal-service">
-                  <i class="fa-solid fa-laptop work__modal-icon"></i>
-                  <p>I develop user interface</p>
-                </li>
-                <li className="work__modal-service">
-                  <i class="fa-solid fa-laptop work__modal-icon"></i>
-                  <p>I develop user interface</p>
-                </li>
-              </ul>
-            </div>
-          </div> */}
         </section>
       )}
     </>

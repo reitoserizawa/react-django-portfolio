@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import "./WorkCard.css";
 
 function WorkCard({ project }) {
-  const technologies_front = project.technologies.map((tech) => {
-    return <img src={tech.tech_thumbnail} alt="tech icon" />;
+  const technologies_front = project.technologies.slice(0, 3).map((tech) => {
+    return <img key={tech.name} src={tech.tech_thumbnail} alt="tech icon" />;
   });
 
-  const technologies_back = project.technologies.map((tech) => {
+  const technologies_back = project.technologies.slice(0, 3).map((tech) => {
     return (
-      <div className="work_card__tech">
+      <div key={tech.name} className="work_card__tech">
         <div className="work_card__tech_icon">
           <img src={tech.tech_thumbnail} alt="tech icon" />
         </div>
@@ -52,7 +52,7 @@ function WorkCard({ project }) {
               </a>
             </p>
           </div>
-          <Link to={`/work/1`}>
+          <Link to={`/work/${project.id}`}>
             <button className="work_card__btn">See details</button>
           </Link>
           <div className="work_card__techs">{technologies_back}</div>

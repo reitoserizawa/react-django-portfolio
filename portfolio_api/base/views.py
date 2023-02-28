@@ -20,9 +20,10 @@ def technologies_list(request):
 
 @api_view(['GET'])
 def get_technology(request, pk):
-    technology = Technology.objects.get(id=pk)
-    serializer = TechnologySerializer(technology, many=False)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        data = Technology.objects.get(id=pk)
+        serializer = TechnologySerializer(data, context={"request": request},many=False)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def projects_list(request):
@@ -33,7 +34,8 @@ def projects_list(request):
 
 @api_view(['GET'])
 def get_project(request, pk):
-    project = Project.objects.get(id=pk)
-    serializer = ProjectSerializer(project, many=False)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        data = Project.objects.get(id=pk)
+        serializer = ProjectSerializer(data, context={"request": request},many=False)
+        return Response(serializer.data)
 

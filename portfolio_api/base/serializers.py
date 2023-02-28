@@ -15,6 +15,7 @@ class ContactSerializer(serializers.ModelSerializer):
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
+            'id',
             'name',
             'tech_thumbnail',
         )
@@ -24,6 +25,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     technologies = TechnologySerializer(many=True, read_only=True)
     class Meta:
         fields = (
+            'id',
             'name',
             'description',
             'project_thumbnail',
