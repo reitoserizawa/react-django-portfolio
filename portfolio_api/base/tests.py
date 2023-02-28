@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Contact
+from .models import Contact, Technology
 
 class ContactTest(TestCase):
     
@@ -16,3 +16,16 @@ class ContactTest(TestCase):
         contact = Contact.objects.get(id=1)
         expected_object_name = f'{contact.name}'
         self.assertEquals(expected_object_name, 'Reito Serizawa')
+
+class TechnologyTest(TestCase):
+    
+    @classmethod
+    def setUpTestData(cls):
+        Technology.objects.create(
+            name="JavaScript", 
+            )
+    
+    def test_name_content(self):
+        technology = Technology.objects.get(id=1)
+        expected_object_name = f'{technology.name}'
+        self.assertEquals(expected_object_name, 'JavaScript')

@@ -12,6 +12,7 @@
 .work_card__container img {
   /* temporary */
   max-width: 100%;
+  justify-content: center;
 }
 
 .work_card__front {
@@ -20,6 +21,9 @@
 
 .work_card__front .work_card__thumbnail {
   border-radius: 0.5em;
+  height: 260px;
+  width: 200px;
+  object-fit: cover;
 }
 
 .work_card__name {
@@ -117,13 +121,12 @@
   transform: scale(0.2, 0.9);
   border-radius: 0.5em;
   opacity: 0;
-  overflow: hidden;
 }
 
 .work_card__background img {
   opacity: 0.3;
   clip-path: url(#wave);
-  height: 20%;
+  height: 30%;
   width: 100%;
   object-fit: cover;
 }
@@ -166,7 +169,7 @@
 .work_card__container:hover .work_card__background {
   transition: var(--transition), opacity 100ms linear;
   /* sizing */
-  transform: scale(1.2, 1.1);
+  transform: scale(1.2, 1.15);
   opacity: 1;
 }
 
