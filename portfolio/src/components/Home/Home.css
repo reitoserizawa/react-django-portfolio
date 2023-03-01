@@ -54,7 +54,7 @@
 }
 
 .home__scroll-button {
-  color: darkgray;
+  color: gray;
   transition: 0.3s;
 }
 
@@ -79,36 +79,31 @@
 
 /* buttons */
 .button {
-  display: inline-block;
-  padding: 1rem;
-  background-color: gray;
+  padding: 15px;
+  background-color: white;
   border-radius: 0.5rem;
-  color: white;
-  font-weight: var(--font-medium);
+  color: #202020;
   -webkit-transition: color 1s;
   -moz-transition: color 1s;
   -ms-transition: color 1s;
   -o-transition: color 1s;
   transition: color 1s;
   transition: background-color 0.5s;
-  border: solid 1px transparent;
+  border: solid 1px #202020;
 }
 
 .button:hover {
-  background-color: white;
-  border-color: black;
-  border: solid 1px;
-  color: black;
+  background-color: gray;
+  color: white;
 }
 
 .button__icon {
-  font-size: 1.25rem;
   margin-left: var(--mb-0-5);
-  transition: 0.3s;
 }
 .button--flex {
   display: inline-flex;
   align-items: center;
+  text-align: center;
 }
 
 /* small screen */

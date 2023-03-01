@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import image from "../../images/home__blob-image.png";
 import Loading from "../Loading/Loading";
 
 function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   return (
     <>
       {loading ? (
@@ -59,10 +60,10 @@ function Home() {
                   Tokyo, Japan and grew up by Mt. Fuiji. I love the outdoors,
                   wine and cocktails.
                 </p>
-                <a href="#contact" className="button button--flex">
+                <Link to="/contact" className="button button--flex">
                   Contact me
                   <i className="fa-regular fa-envelope button__icon"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
