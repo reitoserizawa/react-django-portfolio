@@ -90,27 +90,27 @@ function Contact() {
                     <span>
                       <i class="fa-solid fa-phone"></i>
                     </span>
-                    <a href="mailto:s.reitiger@gmail.com">+1 979-661-4280</a>
+                    <p>+1 979-661-4280</p>
                   </div>
                   {/* social media */}
                   <ul className="sci">
                     <li>
-                      <a>
+                      <a href="https://www.linkedin.com/in/reitos/">
                         <i class="fa-brands fa-linkedin-in"></i>
                       </a>
                     </li>
                     <li>
-                      <a>
+                      <a href="https://github.com/reitoserizawa">
                         <i class="fa-brands fa-github"></i>
                       </a>
                     </li>
                     <li>
-                      <a>
+                      <a href="https://medium.com/@s.reitiger">
                         <i class="fa-brands fa-medium"></i>
                       </a>
                     </li>
                     <li>
-                      <a>
+                      <a href="https://drive.google.com/drive/recent">
                         <i class="fa-solid fa-file"></i>
                       </a>
                     </li>
@@ -124,6 +124,7 @@ function Contact() {
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
+                  title="jersey city"
                 ></iframe>
               </div>
             </div>
