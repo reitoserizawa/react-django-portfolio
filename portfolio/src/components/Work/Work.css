@@ -8,8 +8,7 @@
 }
 
 .center {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +17,7 @@
 .alice-carousel__wrapper {
   padding-top: 30px;
   display: inline-block;
-  height: 520px !important;
+  height: 500px !important;
 }
 
 .alice-carousel__dots-item.__active {
@@ -30,15 +29,35 @@
 }
 
 .alice-carousel__dots {
-  margin: 0px 3px 5px !important;
+  margin: 0px 3px 15px !important;
 }
 
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {
-  padding: 0px 5px !important;
+  padding: 0px 40px !important;
+}
+
+.alice_arrows {
+  padding: 15px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  position: center;
+  text-align: center;
+  border: none;
+  background: white;
+  cursor: pointer;
+  position: flex;
+}
+
+.alice-carousel__dots-item {
+  display: none !important;
 }
 
 .work__container {
+  margin-bottom: 30px;
 }
 
 .work__content {

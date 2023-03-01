@@ -56,10 +56,25 @@ function Work() {
                 mouseTracking
                 items={items}
                 responsive={responsive}
-                controlsStrategy="alternate"
+                controlsStrategy="responsive"
                 autoPlay={!modal}
                 autoPlayInterval={1500}
                 infinite={true}
+                keyboardNavigation={true}
+                renderPrevButton={() => {
+                  return (
+                    <button className="p-4 absolute left-0 top-0 alice_arrows">
+                      <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                  );
+                }}
+                renderNextButton={() => {
+                  return (
+                    <button className="p-4 absolute right-0 top-0 alice_arrows">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  );
+                }}
               />
             </div>
           </div>
