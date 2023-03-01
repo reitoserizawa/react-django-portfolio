@@ -3,7 +3,7 @@ import "./Contact.css";
 import Loading from "../Loading/Loading";
 
 function Contact() {
-  const [contactLoading, setContactLoading] = useState(false);
+  const [contactLoading, setContactLoading] = useState(true);
 
   return (
     <>
@@ -30,31 +30,28 @@ function Contact() {
                     <div className="row50">
                       <div className="inputBox">
                         <span>Frist Name</span>
-                        <input type="text" placeholder="John"></input>
+                        <input type="text"></input>
                       </div>
                       <div className="inputBox">
                         <span>Last Name</span>
-                        <input type="text" placeholder="Doh"></input>
+                        <input type="text"></input>
                       </div>
                     </div>
                     <div className="row50">
                       <div className="inputBox">
                         <span>Email</span>
-                        <input
-                          type="text"
-                          placeholder="johndoe@email.com"
-                        ></input>
+                        <input type="text"></input>
                       </div>
                       <div className="inputBox">
                         <span>Phone</span>
-                        <input type="text" placeholder="123-456-789"></input>
+                        <input type="text"></input>
                       </div>
                     </div>
 
                     <div className="row100">
                       <div className="inputBox">
                         <span>Message</span>
-                        <textarea placeholder="Write your message here..."></textarea>
+                        <textarea></textarea>
                       </div>
                     </div>
                     <div className="row100">

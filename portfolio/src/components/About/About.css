@@ -166,12 +166,18 @@
   color: white;
   line-height: 1.2em;
   font-weight: var(--font-semi-bold);
+  transition: 0.3s;
 }
 
 .about__blob__data h3 span {
   font-size: var(--small-font-size);
   font-weight: 400;
   opacity: 0.6;
+}
+
+.about__blob__data h3:hover {
+  transform: translateY(-25%);
+  color: black;
 }
 
 .about__blob__content .actionBtn {
@@ -188,6 +194,17 @@
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
   cursor: pointer;
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -ms-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
+  transition: background-color 0.5s;
+}
+
+.about__blob__content .actionBtn button:hover {
+  background-color: black;
+  color: white;
 }
 
 /* small display */

@@ -14,7 +14,7 @@ function Blog() {
           loading={blogLoading}
         />
       ) : (
-        <section id="blog" className="blog section grid">
+        <section id="blog" className="blog section">
           <div className="blog__container">
             <div className="blog__content">
               <div className="blog__title__container container">

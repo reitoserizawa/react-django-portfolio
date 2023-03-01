@@ -5,7 +5,7 @@ import image from "../../images/about__blob.jpg";
 import Loading from "../Loading/Loading";
 
 function About() {
-  const [aboutLoading, setAboutLoading] = useState(false);
+  const [aboutLoading, setAboutLoading] = useState(true);
   return (
     <>
       {aboutLoading ? (

@@ -93,11 +93,10 @@ function BlogCard({
             <div className="article-content">
               <a href={data.link}>
                 <h3 className="article-title">{data.title}</h3>
-
-                <p className="article-text">
-                  {convertHTMLtoText(data.description)}...
-                </p>
               </a>
+              <p className="article-text">
+                {convertHTMLtoText(data.description)}...
+              </p>
 
               <div className="acticle-content-footer">
                 <div className="author">

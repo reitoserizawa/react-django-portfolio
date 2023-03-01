@@ -54,6 +54,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.work_card__left {
+  font-size: var(--small-font-size);
+}
+
 .work_card__techs {
   display: flex;
   text-align: center;
@@ -96,10 +100,15 @@
 .work_card__back .work_card__link {
   font-size: 1.125rem;
   text-align: center;
+  transition: 0.3s;
 }
 .work_card__back .work_card__link span {
   font-size: 0.85rem;
   display: block;
+}
+
+.work_card__back .work_card__link:hover {
+  transform: translateY(-10%);
 }
 
 .work_card__btn {
@@ -109,6 +118,17 @@
   padding: 0.5em 1.5em;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -ms-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
+  transition: background-color 0.5s;
+}
+
+.work_card__btn:hover {
+  background-color: rgb(120, 120, 120, 0.8);
+  color: white;
 }
 
 .work_card__background {
