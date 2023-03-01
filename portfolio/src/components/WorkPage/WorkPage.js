@@ -43,11 +43,15 @@ function WorkPage() {
           </div>
           <div>
             <div className="work_page__skills">
-              <ul className="work_page__skill_list">
+              <div className="work_page__skills_title_container">
                 <h4>Technologies</h4>
+              </div>
+              <ul className="work_page__skill_list">
                 {insert_techs(project.technologies)}
               </ul>
-
+              <div className="work_page__skills_title_container">
+                <h4>Link</h4>
+              </div>
               <ul className="work_page__link_list">
                 <li>
                   <a href={project.github}>

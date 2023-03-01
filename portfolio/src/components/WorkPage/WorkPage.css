@@ -1,15 +1,20 @@
 .work_page__container {
   height: 100vh;
+  min-height: 940px;
   grid-template-rows: 2fr 3fr 3fr;
+  padding-bottom: 10px;
 }
 
 /* title */
 .work_page__title__container {
   align-self: end;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .work_page__title {
   font-size: var(--h1-font-size);
-  margin-bottom: var(--mb-2);
+  padding-bottom: var(--mb-2);
 }
 .work_page__title:after {
   background-color: #000;
@@ -18,7 +23,7 @@
   height: 1px;
   position: relative;
   vertical-align: middle;
-  width: 30%;
+  width: 100%;
   margin-left: var(--mb-0-5);
   z-index: -1;
 }
@@ -31,7 +36,7 @@
 
 /* cover image */
 .work_page__cover {
-  width: 500px;
+  width: 100%;
   margin: auto;
 }
 
@@ -56,7 +61,11 @@
 }
 
 .work_page__skills h4 {
-  margin-bottom: var(--mb-1);
+  margin-bottom: var(--mb-0-75);
+}
+
+.work_page__skill_list {
+  margin-bottom: var(--mb-0-75);
 }
 
 .work_page__skill_list li {
@@ -83,4 +92,58 @@
   margin-top: var(--mb-1);
   column-rule: 1px solid black;
   font-size: var(--h3-font-size);
+}
+
+.work_page__link_list li {
+  cursor: pointer !important;
+}
+
+@media (max-width: 500px) {
+  .work_page__container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+}
+
+@media (max-width: 768px) {
+  .work_page__cover {
+    width: 100%;
+    margin: auto;
+  }
+  .work_page__container {
+    display: block;
+    padding-top: 100px;
+  }
+  .work_page__content {
+    display: block;
+  }
+
+  .work_page__skills {
+    margin-top: 20px;
+  }
+  .work_page__skills .work_page__skill_list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .work_page__skills .work_page__skill_list li {
+    flex: 0 0 33.333333%;
+  }
+
+  .work_page__link_list {
+    display: flex;
+  }
+
+  .work_page__link_list li {
+    padding-left: 30px;
+    padding-right: 30px;
+    transform: translateY(-100%);
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 819px) {
+  .work_page__container {
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+  }
 }
