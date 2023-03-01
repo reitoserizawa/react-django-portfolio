@@ -5,7 +5,7 @@ import image from "../../images/home__blob-image.png";
 import Loading from "../Loading/Loading";
 
 function Home() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   return (
     <>
       {loading ? (
