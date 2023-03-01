@@ -64,14 +64,14 @@ function Work() {
                 renderPrevButton={() => {
                   return (
                     <button className="p-4 absolute left-0 top-0 alice_arrows">
-                      <i class="fa-solid fa-arrow-left"></i>
+                      <i className="fa-solid fa-arrow-left"></i>
                     </button>
                   );
                 }}
                 renderNextButton={() => {
                   return (
                     <button className="p-4 absolute right-0 top-0 alice_arrows">
-                      <i class="fa-solid fa-arrow-right"></i>
+                      <i className="fa-solid fa-arrow-right"></i>
                     </button>
                   );
                 }}
