@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from .models import Contact, Technology, Project
-from .serializers import ContactSerializer, TechnologySerializer, ProjectSerializer
+from .serializers import ContactSerializer, TechnologySerializer, ProjectSerializer, CreateContactSerializer
 
 @api_view(['GET', 'POST'])
 def contacts_list(request):
@@ -12,11 +12,13 @@ def contacts_list(request):
         return Response(serializer.data)
     if request.method == 'POST':
         contact = Contact.objects.create(
-            name=request.POST.get('name'), 
-            phone=request.POST.get('phone'), 
-            email=request.POST.get('email'), 
-            message=request.POST.get('message'))
-        return Response(contact)
+            name=request.data["name"],
+            phone=request.data["phone"],
+            email=request.data["email"],
+            message=request.data["message"],
+        )
+        serializer = CreateContactSerializer(contact, context={"request": request})
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def technologies_list(request):
