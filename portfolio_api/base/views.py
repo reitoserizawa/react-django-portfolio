@@ -4,12 +4,19 @@ from rest_framework import status
 from .models import Contact, Technology, Project
 from .serializers import ContactSerializer, TechnologySerializer, ProjectSerializer
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def contacts_list(request):
     if request.method == 'GET':
         data = Contact.objects.all()
         serializer = ContactSerializer(data, context={"request": request}, many=True)
         return Response(serializer.data)
+    if request.method == 'POST':
+        contact = Contact.objects.create(
+            name=request.POST.get('name'), 
+            phone=request.POST.get('phone'), 
+            email=request.POST.get('email'), 
+            message=request.POST.get('message'))
+        return Response(contact)
 
 @api_view(['GET'])
 def technologies_list(request):

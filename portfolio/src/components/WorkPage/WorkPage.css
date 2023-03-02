@@ -1,6 +1,6 @@
 .work_page__container {
   height: 100vh;
-  min-height: 940px;
+  min-height: 1000px;
   grid-template-rows: 2fr 3fr 3fr;
   padding-bottom: 10px;
 }
