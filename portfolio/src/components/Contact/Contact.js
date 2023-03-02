@@ -22,7 +22,7 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:8000/api/contacts/", {
+    fetch("https://reitos.pythonanywhere.com/api/contacts/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,8 +31,10 @@ function Contact() {
     }).then((r) => {
       if (r.ok) {
         r.json().then((data) => {
-          alert("form submitted");
+          alert("Form submitted");
         });
+      } else {
+        alert("Error occured! Try again...");
       }
     });
     setContact({
@@ -73,6 +75,7 @@ function Contact() {
                           onChange={handleChange}
                           value={contact.name}
                           type="text"
+                          required
                         ></input>
                       </div>
                     </div>
@@ -84,6 +87,7 @@ function Contact() {
                           onChange={handleChange}
                           value={contact.email}
                           type="text"
+                          required
                         ></input>
                       </div>
                       <div className="inputBox">
@@ -104,6 +108,7 @@ function Contact() {
                           name="message"
                           onChange={handleChange}
                           value={contact.message}
+                          required
                         ></textarea>
                       </div>
                     </div>

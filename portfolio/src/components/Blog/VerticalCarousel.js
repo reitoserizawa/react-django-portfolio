@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import BlogCard from "../BlogCard/BlogCard";
 import "./Blog.css";
 
-function VerticalCarousel() {
+function VerticalCarousel({ articles, author }) {
   const [index, setIndex] = useState(0);
   const [pause, setPause] = useState(false);
-  const [articles, setArticles] = useState([]);
-  const [author, setAuthor] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,17 +14,6 @@ function VerticalCarousel() {
     }, 2000);
     return () => clearInterval(interval);
   });
-
-  useEffect(() => {
-    fetch(
-      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@s.reitiger"
-    )
-      .then((r) => r.json())
-      .then((data) => {
-        setArticles(data.items);
-        setAuthor(data.feed);
-      });
-  }, []);
 
   let offsetRadius = 2;
   let animationConfig = { tension: 120, friction: 14 };

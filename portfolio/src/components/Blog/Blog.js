@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import VerticalCarousel from "./VerticalCarousel";
 import Loading from "../Loading/Loading";
 
 function Blog() {
   const [blogLoading, setBlogLoading] = useState(true);
+  const [articles, setArticles] = useState([]);
+  const [author, setAuthor] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@s.reitiger"
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        setArticles(data.items);
+        setAuthor(data.feed);
+      });
+  }, []);
 
   return (
     <>
@@ -22,7 +35,7 @@ function Blog() {
                   <span aria-hidden="true">03</span>Blog
                 </h1>
               </div>
-              <VerticalCarousel />
+              <VerticalCarousel articles={articles} author={author} />
             </div>
           </div>
         </section>

@@ -7,15 +7,15 @@ function WorkPage() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/projects/${params.id}`)
+    fetch(`https://reitos.pythonanywhere.com/api/projects/${params.id}`)
       .then((r) => r.json())
       .then((data) => setProject(data));
   }, [params]);
 
-  // const convert_content = (data) => {
-  //   if (!data) return;
-  //   return data.replace(/\n/g, <br></br>);
-  // };
+  const convert_content = (data) => {
+    if (!data) return;
+    return data.replace("(b)", <br />);
+  };
 
   function insert_techs(data) {
     if (!data) return;
@@ -38,9 +38,12 @@ function WorkPage() {
           <img src={project.project_main_image} alt="cover" />
         </div>
         <div className="work_page__content grid">
-          <div className="work_page__details">
-            <p>{project.description}</p>
-          </div>
+          <div
+            className="work_page__details"
+            dangerouslySetInnerHTML={{
+              __html: convert_content(project.description),
+            }}
+          ></div>
           <div>
             <div className="work_page__skills">
               <div className="work_page__skills_title_container">

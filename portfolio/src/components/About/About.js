@@ -45,8 +45,9 @@ function About() {
                   technologies such as Java, Python and Django after graduation.
                 </p>
                 <p>
-                  When I code, I feel like there is nothing else but me. I keep
-                  working on projects so please feel free to check my GitHub.
+                  When I code, I feel like there is nothing else but me. I love
+                  working on different projects so please feel free to check my
+                  GitHub.
                 </p>
                 <p>
                   I have recently been working with a few technologies below:
