@@ -12,6 +12,17 @@ class ContactSerializer(serializers.ModelSerializer):
         )
         model = Contact
 
+class CreateContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = (
+            'name',
+            'email',
+            'phone',
+            'message',
+        )
+        model = Contact
+
+
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
