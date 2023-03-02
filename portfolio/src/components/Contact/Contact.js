@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Contact.css";
 import Loading from "../Loading/Loading";
+import pdf from "../../pdf/Reito.Resume.SoftwareEngineer111022 (4).pdf";
 
 function Contact() {
   const [contactLoading, setContactLoading] = useState(true);
@@ -29,8 +30,16 @@ function Contact() {
       body: JSON.stringify(contact),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((data) => console.log(data));
+        r.json().then((data) => {
+          alert("form submitted");
+        });
       }
+    });
+    setContact({
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
     });
   };
 
@@ -62,6 +71,7 @@ function Contact() {
                         <input
                           name="name"
                           onChange={handleChange}
+                          value={contact.name}
                           type="text"
                         ></input>
                       </div>
@@ -72,6 +82,7 @@ function Contact() {
                         <input
                           name="email"
                           onChange={handleChange}
+                          value={contact.email}
                           type="text"
                         ></input>
                       </div>
@@ -80,6 +91,7 @@ function Contact() {
                         <input
                           name="phone"
                           onChange={handleChange}
+                          value={contact.phone}
                           type="text"
                         ></input>
                       </div>
@@ -91,6 +103,7 @@ function Contact() {
                         <textarea
                           name="message"
                           onChange={handleChange}
+                          value={contact.message}
                         ></textarea>
                       </div>
                     </div>
@@ -147,7 +160,7 @@ function Contact() {
                       </a>
                     </li>
                     <li>
-                      <a href="https://drive.google.com/drive/recent">
+                      <a href={pdf} target="_blank" rel="noreferrer">
                         <i className="fa-solid fa-file"></i>
                       </a>
                     </li>

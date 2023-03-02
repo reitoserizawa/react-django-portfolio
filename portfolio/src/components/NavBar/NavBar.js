@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../images/header-logo.png";
+import pdf from "../../pdf/Reito.Resume.SoftwareEngineer111022 (4).pdf";
 
 function NavBar() {
   const [visibility, setVisibility] = useState(false);
@@ -64,9 +65,9 @@ function NavBar() {
               </Link>
             </li>
             <li className="active">
-              <Link to="/resume">
+              <a href={pdf} target="_blank" rel="noreferrer">
                 <span aria-hidden="true">05</span>Resume
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
